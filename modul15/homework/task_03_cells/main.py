@@ -5,23 +5,24 @@ def get_input_parameters():
     :return: набор клеток, например: [3, 0, 6, 2, 10]
     :rtype: List[int]
     """
-    # TODO: в этой функции пишем весь необходимый код для 
-    #  получения входных параметров.
-    #  Логику расчётов тут не программируем
-    pass
+    cells = []
+    amount_of_cells = int(input('Кол-во клеток: '))
+    for cell in range(1, amount_of_cells + 1):
+        efficiency = int(input(f"Эффективность {cell} клетки: "))
+        cells.append(efficiency)
+
+    return cells
 
 
-def display_result(cells):
+
+def display_result(bad_cells):
     """
     Выводим список клеток у которых значение меньше индекса
     
     :param cells: набор клеток, например: [0, 2]
     :type cells: List[int]
     """
-    # TODO: в этой функции пишем весь необходимый код 
-    #  для вывода результата в нужном формате.
-    #  Логику расчётов тут не программируем
-    pass
+    print("Неподходящие значения:", bad_cells)
 
 
 def select_cells(cells):
@@ -34,13 +35,12 @@ def select_cells(cells):
     :return: набор подходящих клеток, например: [0, 2]
     :rtype: List[int]
     """
-    # TODO: в этой функции пишем логику отбора клеток. 
-    #  print'ов и input'ов тут не должно быть. 
-    #  Функция на вход принимает ранее полученные данные
-    #  (из функции get_input_parameters).
-    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
-    #  который будет передан в функцию display_result.
-    pass
+    bad_cells = []
+    for cell in cells:
+        if cells.index(cell) > cell:
+            bad_cells.append(cell)
+
+    return bad_cells
 
 
 if __name__ == '__main__':
