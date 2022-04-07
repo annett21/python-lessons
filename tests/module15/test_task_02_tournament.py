@@ -1,6 +1,6 @@
 import unittest
 
-from task_02_tournament.main import get_participants_names
+from modul15.homework.task_02_tournament.main import get_participants_names
 
 
 class Test02GetParticipantsNames(unittest.TestCase):

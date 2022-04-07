@@ -1,6 +1,6 @@
 import unittest
 
-from task_01_list_gen.main import get_odd_numbers
+from modul15.homework.task_01_list_gen.main import get_odd_numbers
 
 
 class Test01GetOddNumbers(unittest.TestCase):
