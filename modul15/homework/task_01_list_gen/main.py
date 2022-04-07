@@ -5,8 +5,7 @@ def get_input_parameters():
     :return: N, например: 14
     :rtype: int
     """
-    number = int(input("Введите число: "))
-    return number
+    return int(input("Введите число: "))
 
 
 def display_result(odd_numbers):
