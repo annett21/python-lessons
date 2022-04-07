@@ -1,64 +1,51 @@
-from random import randint
-from typing import List
-
-
-def get_input_parameters() -> List[int]:
+def get_input_parameters():
     """
-    Gets a list of efficiency of cells by entering.
+    Получаем набор клеток
+    
+    :return: набор клеток, например: [3, 0, 6, 2, 10]
+    :rtype: List[int]
     """
-    for _ in range(3):
-        user_input = input("Quantity of cells: ")
-
-        try:
-            quantity_cells = int(user_input)
-        except ValueError:
-            print("Enter an integer number.")
-            continue
-
-        if quantity_cells < 1:
-            print("Enter a number greather than 0.")
-            continue
-        else:
-            break
-    else:
-        quantity_cells = 5
-        print(f"Quantity of cells: {quantity_cells}")
-
-    cells = []
-    for index in range(quantity_cells):
-        user_input = input(f"Efficiency of cell {index + 1} is ")
-        try:
-            cells.append(int(user_input))
-        except ValueError:
-            cells.append(randint(0, 10))
-            print(f"Efficiency of cell {index + 1} is {cells[-1]}")
-
-    return cells
+    # TODO: в этой функции пишем весь необходимый код для 
+    #  получения входных параметров.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def display_result(cells: List[int]) -> None:
+def display_result(cells):
     """
-    Displays result. Suddenly)
+    Выводим список клеток у которых значение меньше индекса
+    
+    :param cells: набор клеток, например: [0, 2]
+    :type cells: List[int]
     """
-    print("Unsuitable values:", " ".join(map(str, cells)))
+    # TODO: в этой функции пишем весь необходимый код 
+    #  для вывода результата в нужном формате.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def select_cells(cells: List[int]) -> List[int]:
+def select_cells(cells):
     """
-    Filters cells. Returns cells with efficiency less than index.
+    Отбираем список клеток, у которых значение меньше индекса.
+    
+    :param cells: набор клеток, например: [3, 0, 6, 2, 10]
+    :type cells: List[int]
+    
+    :return: набор подходящих клеток, например: [0, 2]
+    :rtype: List[int]
     """
-    # warning! works only if cells have unique efficiencies
-    # return [cell for cell in cells if cell < cells.index(cell)]
-
-    unsuitable_cells = []
-    for index, cell in enumerate(cells):
-        if cell < index:
-            unsuitable_cells.append(cell)
-
-    return unsuitable_cells
+    # TODO: в этой функции пишем логику отбора клеток. 
+    #  print'ов и input'ов тут не должно быть. 
+    #  Функция на вход принимает ранее полученные данные
+    #  (из функции get_input_parameters).
+    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
+    #  который будет передан в функцию display_result.
+    pass
 
 
-if __name__ == "__main__":
-    cells = get_input_parameters()
-    result_cells = select_cells(cells)
-    display_result(result_cells)
+if __name__ == '__main__':
+    # Это условие необходимо, чтобы в рамках автотестов не произошёл
+    # вызов функций get_input_parameters и display_result
+    cells = get_input_parameters()  # получаем параметры
+    result_cells = select_cells(cells)  # отбираем клетки
+    display_result(result_cells)  # выводим результат

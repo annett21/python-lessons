@@ -1,41 +1,51 @@
-from typing import List
-
-
-def get_input_parameters() -> int:
+def get_input_parameters():
     """
-    Asks to input number and return it.
+    Получаем входное слово
+    
+    :return: входное слово, например: "привет"
+    :rtype: str
     """
-    while True:
-        user_input = input("Enter a number: ")
-
-        try:
-            number = int(user_input)
-        except ValueError:
-            print("Enter an integer number.")
-            continue
-
-        if number < 1:
-            print("Enter a number greater than 1.")
-            continue
-
-        return number
+    # TODO: в этой функции пишем весь необходимый код для 
+    #  получения входных параметров.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def display_result(odd_numbers: List[int]) -> None:
+def display_result(number_unique_letters):
     """
-    Prints list of odd numbers.
+    Выводим количество уникальных букв в слове
+    
+    :param number_unique_letters: количество уникальных букв в слове, например: 6
+    :type number_unique_letters: int
     """
-    print("List of odd numbers:", odd_numbers)
+    # TODO: в этой функции пишем весь необходимый код 
+    #  для вывода результата в нужном формате.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def get_odd_numbers(number: int) -> List[int]:
+def count_number_unique_letters(word):
     """
-    Returns a list of odd numbers from 1 to `number` sorted by ascending.
+    Считаем количество уникальных букв в слове.
+    
+    :param word: входное слово, например: "привет"
+    :type word: str
+    
+    :return: количество уникальных букв в слове, например: 6
+    :rtype: int
     """
-    return list(range(1, number + 1, 2))
+    # TODO: в этой функции пишем логику считаем количество уникальных букв в слове. 
+    #  print'ов и input'ов тут не должно быть. 
+    #  Функция на вход принимает ранее полученные данные
+    #  (из функции get_input_parameters).
+    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
+    #  который будет передан в функцию display_result.
+    pass
 
 
-if __name__ == "__main__":
-    number = get_input_parameters()
-    odd_numbers = get_odd_numbers(number)
-    display_result(odd_numbers)
+if __name__ == '__main__':
+    # Это условие необходимо, чтобы в рамках автотестов не произошёл
+    # вызов функций get_input_parameters и display_result
+    word = get_input_parameters()  # получаем параметры
+    number_unique_letters = count_number_unique_letters(word)  # считаем количество уникальных букв.
+    display_result(number_unique_letters)  # выводим результат

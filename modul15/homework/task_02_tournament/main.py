@@ -1,22 +1,39 @@
-from typing import List
-
-
-def display_result(participants_names: List[str]) -> None:
+def display_result(participants_names):
     """
-    Prints paticipants' names.
+    Выводим список имён участников в первый день
+    
+    :param participants_names: список имён участников, например: ["Артемий", "Влад", "Дима", "Женя"]
+    :type participants_names: List[str]
     """
-    print("First day:", participants_names)
+    # TODO: в этой функции пишем весь необходимый код 
+    #  для вывода результата в нужном формате.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def get_participants_names(names: List[str]) -> List[str]:
+def get_participants_names(names):
     """
-    Returns participants' names on even positions.
+    Получаем элементы списка только с чётными индексами.
+    
+    :param names: список имён, например: ["Артемий", "Борис", "Влад", "Гоша", "Дима", "Евгений", "Женя", "Захар"]
+    :type names: List[str]
+    
+    :return: список имён с чётными индексами , например: ["Артемий", "Влад", "Дима", "Женя"]
+    :rtype: List[str]
     """
-    return [name for name in names if names.index(name) % 2 == 0]
+    # TODO: в этой функции получаем элементы списка только с чётными индексами..
+    #  print'ов и input'ов тут не должно быть. 
+    #  Функция на вход принимает ранее полученные данные
+    #  (из функции get_input_parameters).
+    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
+    #  который будет передан в функцию display_result.
+    pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    # Это условие необходимо, чтобы в рамках автотестов не произошёл
+    # вызов функций get_input_parameters и display_result
     participants_names = get_participants_names(
         ["Артемий", "Борис", "Влад", "Гоша", "Дима", "Евгений", "Женя", "Захар"]
-    )
-    display_result(participants_names)
+    )  # получаем список имён с чётными индексами
+    display_result(participants_names)  # выводим результат

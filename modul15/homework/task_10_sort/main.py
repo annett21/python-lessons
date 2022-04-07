@@ -1,59 +1,51 @@
-from random import randint
-from typing import List
-
-
-def get_input_parameters() -> List[int]:
+def get_input_parameters():
     """
-    Gets a list of numbers.
-    A user enters the length of the list. The list will generate randomly.
+    Получаем неотсортированный список чисел
+    
+    :return: неотсортированный список чисел, например: [1, 4, -3, 0, 10]
+    :rtype: List[int]
     """
-    while True:
-        user_input = input("Enter the length of the list: ")
-
-        try:
-            list_length = int(user_input)
-        except ValueError:
-            print("Enter an integer number.")
-            continue
-
-        if list_length < 2 or list_length > 100:
-            print("Enter a number between 2 and 100 inclusive.")
-            continue
-
-        break
-
-    random_list = [randint(-100, 100) for _ in range(list_length)]
-    print("The original list:", random_list)
-    return random_list
+    # TODO: в этой функции пишем весь необходимый код для 
+    #  получения входных параметров.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def display_result(sorted_list: List[int]) -> None:
+def display_result(sorted_list):
     """
-    Prints the sorted list.
+    Выводим отсортированный список
+    
+    :param sorted_list: отсортированный список, например: [-3, 0, 1, 4, 10]
+    :type sorted_list: List[int]
     """
-    print("The sorted list:", sorted_list)
+    # TODO: в этой функции пишем весь необходимый код 
+    #  для вывода результата в нужном формате.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def sort_list(original_list: List[int]) -> List[int]:
+def sort_list(original_list):
     """
-    Sorts the list by ascending.
+    Сортируем список
+    
+    :param original_list: Исходный список: [1, 4, -3, 0, 10]
+    :type original_list: List[int]
+    
+    :return: отсортированный, например: [-3, 0, 1, 4, 10]
+    :rtype: List[int]
     """
-    # return sorted(original_list)
-
-    for index in range(1, len(original_list)):
-        moving_index = index
-        while original_list[moving_index] < original_list[moving_index - 1]:
-            # swapping the numbers
-            original_list.insert(moving_index - 1, original_list.pop(moving_index))
-
-            moving_index -= 1
-            if not moving_index:
-                break
-
-    return original_list
+    # TODO: в этой функции пишем логику сортировки списка. 
+    #  print'ов и input'ов тут не должно быть. 
+    #  Функция на вход принимает ранее полученные данные
+    #  (из функции get_input_parameters).
+    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
+    #  который будет передан в функцию display_result.
+    pass
 
 
-if __name__ == "__main__":
-    original_list = get_input_parameters()
-    sorted_list = sort_list(original_list)
-    display_result(sorted_list)
+if __name__ == '__main__':
+    # Это условие необходимо, чтобы в рамках автотестов не произошёл
+    # вызов функций get_input_parameters и display_result
+    original_list = get_input_parameters()  # получаем параметры
+    sorted_list = sort_list(original_list)  # сортируем список.
+    display_result(sorted_list)  # выводим результат

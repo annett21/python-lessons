@@ -1,97 +1,56 @@
-from typing import List, Tuple
-
-
-def get_input_parameters() -> Tuple[List[int], int]:
+def get_input_parameters():
     """
-    Gets a list of weights of containers and a weight of a new container.
-    The weight of any container cannot be over 200.
+    Получаем список весов контейнеров и вес нового контейнера
+    Незабываем проверит данные: все числа целые и не превышают 200.
+    
+    :return: список весов контейнеров и вес нового контейнера,
+             например: ([165, 163, 160, 160, 157, 157, 155, 154], 162)
+    :rtype: Tuple[List[int], int]
     """
-    user_input = input("How many containers are in stock? ")
-
-    try:
-        len_of_containers_list = int(user_input)
-    except ValueError:
-        len_of_containers_list = 10
-
-    if len_of_containers_list < 1:
-        len_of_containers_list = 10
-
-    list_container_weights: List[int] = []
-
-    for _ in range(len_of_containers_list):
-        while True:
-            user_input = input("Enter the weight of the container: ")
-
-            try:
-                weight = int(user_input)
-            except ValueError:
-                print("Error: enter an integer number.")
-                continue
-
-            if weight < 1:
-                print("Error: the weight of the container cannot be less than 1.")
-                continue
-            if weight > 200:
-                print("Error: the weight of the container cannot be over 200.")
-                continue
-            if list_container_weights and list_container_weights[-1] < weight:
-                print(
-                    "Error: the weight of the current container cannot be "
-                    "greater than the weight of the previous container."
-                )
-                continue
-
-            list_container_weights.append(weight)
-            break
-
-    new_container_weight = 0
-
-    while True:
-        user_input = input("Enter the weight of the new container: ")
-
-        try:
-            weight = int(user_input)
-        except ValueError:
-            print("Error: enter an integer number.")
-            continue
-
-        if weight < 1:
-            print("Error: the weight of the container cannot be less than 1.")
-            continue
-        if weight > 200:
-            print("Error: the weight of the container cannot be over 200.")
-            continue
-
-        new_container_weight = weight
-        break
-
-    return list_container_weights, new_container_weight
+    # TODO: в этой функции пишем весь необходимый код для 
+    #  получения входных параметров.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def display_result(serial_number_new_container: int) -> None:
+def display_result(serial_number_new_container):
     """
-    Prints the number of the new container.
+    Выводим порядковый номер нового контейнера.
+    
+    :param serial_number_new_container: порядковый номер нового контейнера, например: 3
+    :type serial_number_new_container: int
     """
-    print("The number of the new container is", serial_number_new_container)
+    # TODO: в этой функции пишем весь необходимый код 
+    #  для вывода результата в нужном формате.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def search_serial_number_new_container(
-    list_container_weights: List[int], new_container_weight: int
-) -> int:
+def search_serial_number_new_container(list_container_weights, new_container_weight):
     """
-    Searches the number of the new container.
-    The list of container weights should be sorted by descending.
-    The number of the new container will fit sorting.
+    Ищем куда вставим новый контейнер.
+    
+    :param list_container_weights: список весов контейнеров, например: [165, 163, 160, 160, 157, 157, 155, 154]
+    :type list_container_weights: List[int]
+    :param new_container_weight: вес нового контейнера, например: 166
+    :type new_container_weight: int
+    
+    :return: порядковый номер нового контейнера, например: 3
+    :rtype: int
     """
-    for index, weight in enumerate(list_container_weights):
-        if weight < new_container_weight:
-            return index + 1
-    return len(list_container_weights) + 1
+    # TODO: в этой функции пишем логику поиска куда вставим новый контейнер. 
+    #  print'ов и input'ов тут не должно быть. 
+    #  Функция на вход принимает ранее полученные данные
+    #  (из функции get_input_parameters).
+    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
+    #  который будет передан в функцию display_result.
+    pass
 
 
-if __name__ == "__main__":
-    list_container_weights, new_container_weight = get_input_parameters()
-    serial_number_new_container = search_serial_number_new_container(
-        list_container_weights, new_container_weight
-    )
-    display_result(serial_number_new_container)
+if __name__ == '__main__':
+    # Это условие необходимо, чтобы в рамках автотестов не произошёл
+    # вызов функций get_input_parameters и display_result
+    list_container_weights, new_container_weight = get_input_parameters()  # получаем параметры
+    # Ищем куда вставим новый контейнер.
+    serial_number_new_container = search_serial_number_new_container(list_container_weights, new_container_weight)  
+    display_result(serial_number_new_container)  # выводим результат

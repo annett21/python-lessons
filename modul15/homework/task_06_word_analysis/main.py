@@ -1,25 +1,51 @@
-def get_input_parameters() -> str:
+def get_input_parameters():
     """
-    Gets word using input.
+    Получаем входное слово
+    
+    :return: входное слово, например: "привет"
+    :rtype: str
     """
-    return input("Enter a word: ")
+    # TODO: в этой функции пишем весь необходимый код для 
+    #  получения входных параметров.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def display_result(number_unique_letters: int) -> None:
+def display_result(number_unique_letters):
     """
-    Prints result. Suddenly.
+    Выводим количество уникальных букв в слове
+    
+    :param number_unique_letters: количество уникальных букв в слове, например: 6
+    :type number_unique_letters: int
     """
-    print("Count of unique letters is", number_unique_letters)
+    # TODO: в этой функции пишем весь необходимый код 
+    #  для вывода результата в нужном формате.
+    #  Логику расчётов тут не программируем
+    pass
 
 
-def count_number_unique_letters(word: str) -> int:
+def count_number_unique_letters(word):
     """
-    Counts number of unique letters in `word`. Suddenly again :)
+    Считаем количество уникальных букв в слове.
+    
+    :param word: входное слово, например: "привет"
+    :type word: str
+    
+    :return: количество уникальных букв в слове, например: 6
+    :rtype: int
     """
-    return len(set(word))
+    # TODO: в этой функции пишем логику считаем количество уникальных букв в слове. 
+    #  print'ов и input'ов тут не должно быть. 
+    #  Функция на вход принимает ранее полученные данные
+    #  (из функции get_input_parameters).
+    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
+    #  который будет передан в функцию display_result.
+    pass
 
 
-if __name__ == "__main__":
-    word = get_input_parameters()
-    number_unique_letters = count_number_unique_letters(word)
-    display_result(number_unique_letters)
+if __name__ == '__main__':
+    # Это условие необходимо, чтобы в рамках автотестов не произошёл
+    # вызов функций get_input_parameters и display_result
+    word = get_input_parameters()  # получаем параметры
+    number_unique_letters = count_number_unique_letters(word)  # считаем количество уникальных букв.
+    display_result(number_unique_letters)  # выводим результат
