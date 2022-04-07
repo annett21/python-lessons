@@ -5,11 +5,15 @@ def get_input_parameters():
     :return: набор клеток, например: [3070, 2060, 3090, 3070, 3090]
     :rtype: List[int]
     """
-    # TODO: в этой функции пишем весь необходимый код для 
-    #  получения входных параметров.
-    #  Логику расчётов тут не программируем
-    pass
+    old_video_cards = []
 
+    cards = int(input("Кол-во видеокарт: "))
+
+    for i in range(1, cards + 1):
+        card = int(input(f"{i} Видеокарта: "))
+        old_video_cards.append(card)
+
+    return old_video_cards
 
 def display_result(old_video_cards, new_video_cards):
     """
@@ -20,13 +24,11 @@ def display_result(old_video_cards, new_video_cards):
     :param new_video_cards: новый набор видеокарт, например: [3070, 2060, 3070]
     :type new_video_cards: List[int]
     """
-    # TODO: в этой функции пишем весь необходимый код 
-    #  для вывода результата в нужном формате.
-    #  Логику расчётов тут не программируем
-    pass
+    print("Старый список видеокарт:", old_video_cards)
+    print("Новый список видеокарт:", new_video_cards)
 
 
-def select_video_cards(video_cards):
+def select_video_cards(old_video_cards):
     """
     Удаляем из списка видеокарт наибольшие элементы.
     
@@ -36,18 +38,20 @@ def select_video_cards(video_cards):
     :return: набор оставшихся видеокарт, например: [3070, 2060, 3070]
     :rtype: List[int]
     """
-    # TODO: в этой функции пишем логику удаление из списка видеокарт наибольшие элементы. 
-    #  print'ов и input'ов тут не должно быть. 
-    #  Функция на вход принимает ранее полученные данные
-    #  (из функции get_input_parameters).
-    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
-    #  который будет передан в функцию display_result.
-    pass
+    
+    new_video_cards = old_video_cards.copy()
+    max_card = max(old_video_cards)
+    # for card in old_video_cards:
+    #     if max_card == card:
+    #         new_video_cards.remove(card)
+    while max_card in new_video_cards:
+        new_video_cards.remove(max_card)
+
+    
+    return new_video_cards
 
 
 if __name__ == '__main__':
-    # Это условие необходимо, чтобы в рамках автотестов не произошёл
-    # вызов функций get_input_parameters и display_result
-    video_cards = get_input_parameters()  # получаем параметры
+    video_cards = get_input_parameters() 
     result_video_cards = select_video_cards(video_cards)  # удаляет наибольшие элементы.
     display_result(video_cards, result_video_cards)  # выводим результат
