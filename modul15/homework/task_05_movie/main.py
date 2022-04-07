@@ -5,10 +5,14 @@ def get_input_parameters():
     :return: добавляемые фильмы, например: ["Леон", "Безумный Макс", "Мементо", "Царь горы"]
     :rtype: List[str]
     """
-    # TODO: в этой функции пишем весь необходимый код для 
-    #  получения входных параметров.
-    #  Логику расчётов тут не программируем
-    pass
+    new_favorite_films = []
+    num = int(input("Сколько фильмов хотите добавить? "))
+    for _ in range(num):
+        film = input("Введите название фильма: ")
+        new_favorite_films.append(film)
+    
+    return new_favorite_films
+
 
 
 def display_result(favorite_films, errors):
@@ -20,10 +24,8 @@ def display_result(favorite_films, errors):
     :param errors: список ненайденных фильмов, например: ["Безумный Макс", "Царь горы"]
     :type errors: List[str]
     """
-    # TODO: в этой функции пишем весь необходимый код 
-    #  для вывода результата в нужном формате.
-    #  Логику расчётов тут не программируем
-    pass
+    print("Ошибка. Этих фильмов у нас нет:", errors)
+    print("Ваш список любимых фильмов:", favorite_films)
 
 
 def add_favorite_film(new_favorite_films, available_films):
@@ -41,26 +43,22 @@ def add_favorite_film(new_favorite_films, available_films):
              например: (["Леон", "Мементо"], ["Безумный Макс", "Царь горы"])
     :rtype: Tuple[List[str], List[str]]
     """
-    # TODO: в этой функции пишем логику добавлениея фильмов в список "любимых". 
-    #  print'ов и input'ов тут не должно быть. 
-    #  Функция на вход принимает ранее полученные данные
-    #  (из функции get_input_parameters).
-    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
-    #  который будет передан в функцию display_result.
-    pass
+    
+    favorite_films = list(set(new_favorite_films) & set(available_films))
+    errors = list(set(new_favorite_films).difference(set(favorite_films)))
+
+    return favorite_films, errors
 
 
 if __name__ == '__main__':
-    # Это условие необходимо, чтобы в рамках автотестов не произошёл
-    # вызов функций get_input_parameters и display_result
     available_films = [
         "Крепкий орешек", "Назад в будущее", "Таксист", 
         "Леон", "Богемская рапсодия", "Город грехов", 
         "Мементо", "Отступники", "Деревня"
     ]
-    new_favorite_films = get_input_parameters()  # получаем параметры
+    new_favorite_films = get_input_parameters()  
     favorite_films, errors = add_favorite_film(
         new_favorite_films,
         available_films
-    )  # добавлем фильмы в список "любимых".
-    display_result(favorite_films, errors)  # выводим результат
+    )  
+    display_result(favorite_films, errors) 
