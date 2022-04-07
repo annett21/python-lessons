@@ -1,5 +1,5 @@
 import unittest
-from task_04_videocards.main import select_video_cards
+from modul15.homework.task_04_videocards.main import select_video_cards
 
 
 class Test04SelectVideoCards(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from task_08_running_nums.main import shift_list
+from modul15.homework.task_08_running_nums.main import shift_list
 
 
 class Test08ShiftList(unittest.TestCase):

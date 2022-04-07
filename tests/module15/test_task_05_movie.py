@@ -1,6 +1,6 @@
 import unittest
 
-from task_05_movie.main import add_favorite_movies
+from modul15.homework.task_05_movie.main import add_favorite_movies
 
 
 class Test05AddFavoriteFilm(unittest.TestCase):

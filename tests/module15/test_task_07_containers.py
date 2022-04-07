@@ -1,6 +1,6 @@
 import unittest
 
-from task_07_containers.main import search_serial_number_new_container
+from modul15.homework.task_07_containers.main import search_serial_number_new_container
 
 
 class Test07SearchSerialNumberNewContainer(unittest.TestCase):

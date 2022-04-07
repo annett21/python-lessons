@@ -1,6 +1,6 @@
 import unittest
 
-from task_03_cells.main import select_cells
+from modul15.homework.task_03_cells.main import select_cells
 
 
 class Test03SelectCells(unittest.TestCase):

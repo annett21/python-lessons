@@ -1,6 +1,6 @@
 import unittest
 
-from task_10_sort.main import sort_list
+from modul15.homework.task_10_sort.main import sort_list
 
 
 class Test10Sort(unittest.TestCase):

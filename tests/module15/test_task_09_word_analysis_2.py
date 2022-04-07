@@ -1,6 +1,6 @@
 import unittest
 
-from task_09_word_analysis_2.main import check_palindrome
+from modul15.homework.task_09_word_analysis_2.main import check_palindrome
 
 
 class Test09CheckPalindrome(unittest.TestCase):

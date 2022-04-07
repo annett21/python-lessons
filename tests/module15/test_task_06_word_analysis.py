@@ -1,6 +1,6 @@
 import unittest
 
-from task_06_word_analysis.main import count_number_unique_letters
+from modul15.homework.task_06_word_analysis.main import count_number_unique_letters
 
 
 class Test06CountNumberUniqueLetters(unittest.TestCase):
