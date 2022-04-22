@@ -5,10 +5,17 @@ def get_input_parameters():
     :return: например: (3, [1, 4, -3, 0, 10])
     :rtype: Tuple[int, List[int]]
     """
-    # TODO: в этой функции пишем весь необходимый код для 
-    #  получения входных параметров.
-    #  Логику расчётов тут не программируем
-    pass
+    shift = int(input("Сдвиг: "))
+    elements = int(input("Введите число элементов: "))
+
+    original_list = []
+
+    for _ in range(elements):
+        number = int(input("Введите число для списка: "))
+        original_list.append(number)
+
+    return shift, original_list
+
 
 
 def display_result(shifted_list):
@@ -18,10 +25,8 @@ def display_result(shifted_list):
     :param shifted_list: сдвинутый список, например: [5, 1, 2, 3, 4]
     :type shifted_list: List[int]
     """
-    # TODO: в этой функции пишем весь необходимый код 
-    #  для вывода результата в нужном формате.
-    #  Логику расчётов тут не программируем
-    pass
+    return print("Сдвинутый список:", shifted_list)
+   
 
 
 def shift_list(shift, original_list):
@@ -36,18 +41,14 @@ def shift_list(shift, original_list):
     :return: сдвинутый список, например: [5, 1, 2, 3, 4]
     :rtype: List[int]
     """
-    # TODO: в этой функции пишем логику сдвига списка вправо на shift элементов. 
-    #  print'ов и input'ов тут не должно быть. 
-    #  Функция на вход принимает ранее полученные данные
-    #  (из функции get_input_parameters).
-    #  Функция на выход отдаёт результат необходимый для отображения работы программы,
-    #  который будет передан в функцию display_result.
-    pass
+    
+    for _ in range(shift % len(original_list)):
+        original_list.insert(0, original_list.pop())
+    
+    return original_list
 
 
 if __name__ == '__main__':
-    # Это условие необходимо, чтобы в рамках автотестов не произошёл
-    # вызов функций get_input_parameters и display_result
-    shift, original_list = get_input_parameters()  # получаем параметры
-    shifted_list = shift_list(shift, original_list)  # сдвигаем список.
-    display_result(shifted_list)  # выводим результат
+    shift, original_list = get_input_parameters()  
+    shifted_list = shift_list(shift, original_list)
+    display_result(shifted_list)
