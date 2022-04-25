@@ -1,7 +1,6 @@
-heights_in_first_class = list(range(160, 177, 2))
-heights_in_second_class = list(range(162, 181, 3))
+first_class = list(range(160, 172, 2))
+second_class = list(range(162, 180, 3))
 
-all_heights = heights_in_first_class + heights_in_second_class
-all_heights.sort()
-
-print("The sorted list of heights from two class:", all_heights)
+first_class.extend(second_class)
+first_class.sort()
+print("Отсортированный список учеников:", first_class)
