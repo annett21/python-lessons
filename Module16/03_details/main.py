@@ -1,7 +1,6 @@
-from typing import Any
 
 
-shop: list[list[Any]] = [
+shop = [
     ["каретка", 1200],
     ["шатун", 1000],
     ["седло", 300],
@@ -13,21 +12,16 @@ shop: list[list[Any]] = [
     ["седло", 2700],
 ]
 
-handy_shop: dict[str, list[int]] = {stuff[0]: [0, 0] for stuff in shop}
-for stuff in shop:
-    handy_shop[stuff[0]][0] += 1
-    handy_shop[stuff[0]][1] += stuff[1]
+detail = input("Название детали: ")
+price = 0
+number = 0
 
-print("Print 'exit' to exit.")
-while True:
-    name_of_stuff = input("Enter the name of stuff: ")
+for i in range(0, len(shop)):
+    for item in shop[i]:
+        if item == detail:
+            number += 1
+            price += shop[i][1]
 
-    if name_of_stuff == "exit":
-        break
+print("Кол-во деталей -", number)
+print("Общая стоимость -", price)
 
-    if name_of_stuff not in handy_shop:
-        print("This product is out of stock.")
-        continue
-
-    print("Number of products:", handy_shop[name_of_stuff][0])
-    print("The total price:", handy_shop[name_of_stuff][1])
