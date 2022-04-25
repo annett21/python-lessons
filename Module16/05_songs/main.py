@@ -1,8 +1,5 @@
-import random
-from typing import Any
 
-
-violator_songs: list[list[Any]] = [
+violator_songs = [
     ["World in My Eyes", 4.86],
     ["Sweetest Perfection", 4.43],
     ["Personal Jesus", 4.56],
@@ -14,30 +11,16 @@ violator_songs: list[list[Any]] = [
     ["Clean", 5.83],
 ]
 
-handy_songs: dict[str, float] = {k: v for k, v in violator_songs}
+amount_of_songs = int(input("How many songs you want to chose? "))
 
-for _ in range(3):
-    user_input = input("How many songs? ")
-    try:
-        songs_count = int(user_input)
-        if songs_count < 1 or songs_count > len(violator_songs):
-            raise ValueError
-    except ValueError:
-        print(f"Enter a positive integer number between 1 and {len(violator_songs)}.")
-        continue
-    break
-else:
-    songs_count = 3
+music_time = 0
 
-songs_playing_time = 0.0
-for song_number in range(1, songs_count + 1):
-    song = input(f"The name of {song_number} song: ")
+for i in range(1, amount_of_songs + 1):
+    name_of_song = input(f"{i} song name: ")
+    for music in range(0, len(violator_songs)):
+        for song in violator_songs[music]:
+            if song == name_of_song:
+                music_time += violator_songs[music][1]
 
-    if song not in handy_songs:
-        song = random.choice(list(handy_songs))
-        print("The chosen song is not on the list.")
-        print("The song was chosen randomly:", song)
 
-    songs_playing_time += handy_songs[song]
-
-print("The total playing time of chosen songs:", songs_playing_time, "minutes")
+print("Total songs time:", round(music_time, 2), "minutes")
