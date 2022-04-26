@@ -1,4 +1,3 @@
-
 violator_songs = [
     ["World in My Eyes", 4.86],
     ["Sweetest Perfection", 4.43],
@@ -17,10 +16,9 @@ music_time = 0
 
 for i in range(1, amount_of_songs + 1):
     name_of_song = input(f"{i} song name: ")
-    for music in range(0, len(violator_songs)):
-        for song in violator_songs[music]:
-            if song == name_of_song:
-                music_time += violator_songs[music][1]
+    for song in range(0, len(violator_songs)):
+        if violator_songs[song][0] == name_of_song:
+            music_time += violator_songs[song][1]
 
 
-print("Total songs time:", round(music_time, 2), "minutes")
+print(f"Total songs time: {music_time:.4} minutes")
