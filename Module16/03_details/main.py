@@ -1,5 +1,3 @@
-
-
 shop = [
     ["каретка", 1200],
     ["шатун", 1000],
@@ -17,11 +15,9 @@ price = 0
 number = 0
 
 for i in range(0, len(shop)):
-    for item in shop[i]:
-        if item == detail:
-            number += 1
-            price += shop[i][1]
+    if shop[i][0] == detail:
+        number += 1
+        price += shop[i][1]
 
 print("Кол-во деталей -", number)
 print("Общая стоимость -", price)
-
