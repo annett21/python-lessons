@@ -1,55 +1,23 @@
-from random import randint
+number_of_skates = int(input("Кол-во коньков: "))
+skates_size = []
 
+for i in range(1, number_of_skates + 1):
+    size = int(input(f"Размер {i} пары: "))
+    skates_size.append(size)
 
-def create_and_fill_list() -> list[int]:
-    list_length = 3
+number_of_people = int(input("Кол-во людей: "))
+legs_size = []
 
-    for _ in range(3):
-        user_input = input("Enter the length of the list: ")
-        try:
-            list_length = int(user_input)
-            if list_length > 10 or list_length < 1:
-                list_length = 3
-                raise ValueError
-        except ValueError:
-            print("Enter an integer number between 1 and 10.")
-            continue
-        else:
-            break
+for n in range(1, number_of_people + 1):
+    leg_size = int(input(f"Размер ноги {n} человека: "))
+    legs_size.append(leg_size)
 
-    print("The length of the list:", list_length)
+check = 0
 
-    result_list = []
+for leg_size in legs_size:
+    for size in skates_size:
+        if leg_size <= size:
+            check += 1
+            skates_size.remove(size)
 
-    for index in range(1, list_length + 1):
-        user_input = input(f"{index} value: ")
-        try:
-            result_list.append(int(user_input))
-        except ValueError:
-            rand_value = randint(39, 47)
-            result_list.append(rand_value)
-            print(f"{index} value: {rand_value}")
-
-    return result_list
-
-
-print("\nSkates:")
-skates = sorted(create_and_fill_list())
-
-print("\nPeople:")
-people = sorted(create_and_fill_list())
-
-initial_skates = skates.copy()
-initial_people = people.copy()
-
-for _ in range(len(skates)):
-    if not people:
-        break
-    skate = skates.pop()
-    for _ in range(len(people)):
-        if skate >= people.pop():
-            break
-
-max_people_with_skates = len(initial_skates) - len(skates)
-
-print("\nPeople whit skates:", max_people_with_skates)
+print("Наибольшее кол-во людей, которые могут взять ролики:", check)
