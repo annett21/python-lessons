@@ -15,9 +15,10 @@ for n in range(1, number_of_people + 1):
 check = 0
 
 for leg_size in legs_size:
-    for size in skates_size:
-        if leg_size <= size:
+    for skate_size in sorted(skates_size):
+        if leg_size <= skate_size:
             check += 1
-            skates_size.remove(size)
+            skates_size.remove(skate_size)
+            break
 
 print("Наибольшее кол-во людей, которые могут взять ролики:", check)
