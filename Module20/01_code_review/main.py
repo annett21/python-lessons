@@ -34,5 +34,6 @@ def check_data(dict):
     return all_interests, len_surname
 
 
-print("Полный список интересов всех студентов:", check_data(students)[0])
-print("Общая длина всех фамилий студентов:", check_data(students)[1])
+result = check_data(students)
+print("Полный список интересов всех студентов:", result[0])
+print("Общая длина всех фамилий студентов:", result[1])
