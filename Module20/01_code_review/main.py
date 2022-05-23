@@ -1,44 +1,38 @@
 students = {
     1: {
-        'name': 'Bob',
-        'surname': 'Vazovski',
-        'age': 23,
-        'interests': ['biology, swimming']
+        "name": "Bob",
+        "surname": "Vazovski",
+        "age": 23,
+        "interests": ["biology", "swimming"],
     },
     2: {
-        'name': 'Rob',
-        'surname': 'Stepanov',
-        'age': 24,
-        'interests': ['math', 'computer games', 'running']
+        "name": "Rob",
+        "surname": "Stepanov",
+        "age": 24,
+        "interests": ["math", "computer games", "running"],
     },
     3: {
-        'name': 'Alexander',
-        'surname': 'Krug',
-        'age': 22,
-        'interests': ['languages', 'health food']
-    }
+        "name": "Alexander",
+        "surname": "Krug",
+        "age": 22,
+        "interests": ["languages", "health food"],
+    },
 }
 
-
-def f(dict):
-    lst = []
-    string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
+print("Список пар 'ID студента — возраст':", end=" ")
+print([(student_id, students[student_id]["age"]) for student_id in students])
 
 
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
+def check_data(dict):
+    len_surname = sum([len(st["surname"]) for st in students.values()])
+    all_interests = set(
+        [i for st in students.values() for i in st["interests"]]
+    )
+    # for i_student in students:
+    #     all_interests.update(students[i_student]["interests"])
+    #     len_surname += len(students[i_student]["surname"])
+    return all_interests, len_surname
 
 
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
-
-# TODO исправить код
+print("Полный список интересов всех студентов:", check_data(students)[0])
+print("Общая длина всех фамилий студентов:", check_data(students)[1])
