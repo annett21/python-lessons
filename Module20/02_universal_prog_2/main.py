@@ -1,7 +1,15 @@
+import math
+
+
 def is_prime(num):
-    if num <= 1:
+    if num < 2:
         return False
-    for i in range(2, (num // 2) + 1):
+    if num == 2:
+        return True
+    if num > 2 and num % 2 == 0:
+        return False
+    max_divisor = math.floor(math.sqrt(num))
+    for i in range(3, 1 + max_divisor, 2):
         if num % i == 0:
             return False
     return True
