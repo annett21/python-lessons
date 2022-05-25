@@ -1,5 +1,14 @@
-contacts = {}
+def find_contact(d, contact):
+    for (_, surname) in d:
+        if contact == surname:
+            return True
 
+
+def add_contact(d, name, surname, phone):
+    d[(name, surname)] = phone
+
+
+contacts = {}
 action = 0
 
 while action != 3:
@@ -13,15 +22,15 @@ while action != 3:
         name, surname = input(
             "Введите имя и фамилию нового контакта (через пробел): "
         ).split()
-        if (name, surname) in contacts.keys():
+        if find_contact(contacts, surname):
             print("Такой человек уже есть в контактах.")
         else:
             phone_number = int(input("Введите номер телефона: "))
-            contacts[(name, surname)] = phone_number
+            add_contact(contacts, name, surname, phone_number)
         print("Текущий словарь контактов: ", contacts)
 
     if action == 2:
         search_surname = input("Введите фамилию для поиска: ").capitalize()
-        for (name, surname) in contacts.keys():
+        for (name, surname) in contacts:
             if search_surname == surname:
                 print(name, surname, contacts[(name, surname)])
