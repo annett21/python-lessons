@@ -19,21 +19,17 @@ students = {
     },
 }
 
-print("Список пар 'ID студента — возраст':", end=" ")
+print("Список пар \"ID студента — возраст\":", end=" ")
 print([(student_id, students[student_id]["age"]) for student_id in students])
 
 
-def check_data(dict):
-    len_surname = sum([len(st["surname"]) for st in students.values()])
+def parse_students_data(data):
+    len_surname = sum([len(st["surname"]) for st in data.values()])
     all_interests = set(
-        [i for st in students.values() for i in st["interests"]]
+        [i for st in data.values() for i in st["interests"]]
     )
-    # for i_student in students:
-    #     all_interests.update(students[i_student]["interests"])
-    #     len_surname += len(students[i_student]["surname"])
     return all_interests, len_surname
 
-
-result = check_data(students)
-print("Полный список интересов всех студентов:", result[0])
-print("Общая длина всех фамилий студентов:", result[1])
+all_interests, len_surname = parse_students_data(students)
+print("Полный список интересов всех студентов:", all_interests)
+print("Общая длина всех фамилий студентов:", len_surname)
