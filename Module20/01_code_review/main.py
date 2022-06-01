@@ -19,16 +19,15 @@ students = {
     },
 }
 
-print("Список пар \"ID студента — возраст\":", end=" ")
+print('Список пар "ID студента — возраст":', end=" ")
 print([(student_id, students[student_id]["age"]) for student_id in students])
 
 
 def parse_students_data(data):
     len_surname = sum([len(st["surname"]) for st in data.values()])
-    all_interests = set(
-        [i for st in data.values() for i in st["interests"]]
-    )
+    all_interests = set([i for st in data.values() for i in st["interests"]])
     return all_interests, len_surname
+
 
 all_interests, len_surname = parse_students_data(students)
 print("Полный список интересов всех студентов:", all_interests)
