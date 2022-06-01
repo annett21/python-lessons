@@ -15,12 +15,12 @@ surname_search = input("Введите фамилию: ").capitalize()
 print()
 
 
-for (surname, name), ages in family.items():
-    if surname == surname_search:
-        print(surname, name, ages)
-    elif is_women(surname):
-        if surname[:-1] == surname_search:
-            print(surname, name, ages)
-    elif is_women(surname_search):
-        if surname == surname_search[:-1]:
-            print(surname, name, ages)
+for (surname, name), age in family.items():
+    if (
+        surname == surname_search
+        or is_women(surname)
+        and surname[:-1] == surname_search
+        or is_women(surname_search)
+        and surname == surname_search[:-1]
+    ):
+        print(surname, name, age)
