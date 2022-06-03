@@ -1,9 +1,15 @@
-def calculating_math_func(data):
-    result = 1
-    for index in range(1, data + 1):
-        result *= index
-    result /= data ** 3
-    result = result ** 10
+def recur_factorial(n: int) -> int:
+    if n == 1:
+        return n
+    else:
+        return n * recur_factorial(n - 1)
+
+
+def calculating_math_func(data: int, recur_factorial: int) -> int:
+    result = recur_factorial(data)
+    result /= data**3
+    result = result**10
     return result
 
-# TODO оптимизировать функцию
+
+print(calculating_math_func(5, recur_factorial))
