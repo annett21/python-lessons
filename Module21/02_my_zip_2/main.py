@@ -1,15 +1,13 @@
 from typing import Iterable, Optional
 
 
-def new_zip_2(
-    x: Iterable, y: Iterable, file: Optional[list] = None, i: int = 0
-) -> list:
+def new_zip_2(x: Iterable, y: Iterable, file: Optional[list] = None) -> list:
     if file is None:
         file = []
-    file.append((x[i], y[i]))
-    if len(file) == len(x) or len(file) == len(y):
+    if not x or not y:
         return
-    new_zip_2(x, y, file, i + 1)
+    file.append((x[0], y[0]))
+    new_zip_2(x[1:], y[1:], file)
     return file
 
 
