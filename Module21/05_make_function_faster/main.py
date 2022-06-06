@@ -5,11 +5,11 @@ def recur_factorial(n: int) -> int:
         return n * recur_factorial(n - 1)
 
 
-def calculating_math_func(data: int, recur_factorial: int) -> int:
+def calculating_math_func(data: int) -> int:
     result = recur_factorial(data)
     result /= data**3
     result = result**10
     return result
 
 
-print(calculating_math_func(5, recur_factorial))
+print(calculating_math_func(5))
