@@ -1,7 +1,7 @@
-from typing import Any, Iterable
+from typing import Iterable
 
 
-def new_sum(*args: Any) -> int:
+def new_sum(*args):
     return sum(
         new_sum(*arg) if isinstance(arg, Iterable) else arg for arg in args
     )
