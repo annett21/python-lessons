@@ -3,9 +3,7 @@ from functools import lru_cache
 
 @lru_cache(maxsize=1000)
 def fobinacci(n):
-    if n == 1:
-        return 1
-    elif n == 2:
+    if n == 1 or n == 2:
         return 1
     elif n > 2:
         return fobinacci(n - 1) + fobinacci(n - 2)
