@@ -1,11 +1,11 @@
-from typing import Iterable, Optional
+from typing import Optional, Sequence
 
 
-def new_zip_2(x: Iterable, y: Iterable, file: Optional[list] = None) -> list:
+def new_zip_2(x: Sequence, y: Sequence, file: Optional[list] = None) -> list:
     if file is None:
         file = []
     if not x or not y:
-        return
+        return []
     file.append((x[0], y[0]))
     new_zip_2(x[1:], y[1:], file)
     return file
