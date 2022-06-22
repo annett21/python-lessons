@@ -4,8 +4,7 @@ from collections import Counter
 def read_file(file_path):
     with open(file_path) as files:
         text = files.read()
-        full_text = text.split(sep="\n")
-    return full_text, text
+    return text
 
 
 def count_words(text):
@@ -35,7 +34,8 @@ def find_unique_letter(text):
 
 
 path = "Module22/02_zen_of_python/zen.txt"
-full_text, text = read_file(path)
+text = read_file(path)
+full_text = text.split(sep="\n")
 
 print("Количество букв в файле: ", count_letters(text))
 print("Количество слов в файле: ", count_words(full_text))
