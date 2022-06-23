@@ -1,3 +1,5 @@
+import os
+
 # def get_numbers_from_file(file_path):
 #     with open(file_path, "r") as numbers:
 #         return [int(i_num.strip()) for i_num in numbers if i_num.strip()]
@@ -21,3 +23,19 @@ def read_file(file_path: str) -> str:
 
 def normalize_file_data(file_data: str) -> list[int]:
     pass
+
+
+def write_file(file_path: str, text: str) -> None:
+    pass
+
+
+if __name__ == "__main__":
+    pass
+    # use os.path.abspath to get files paths
+    # answer_path =
+    # numbers_path =
+
+    # file_data =
+    # normalized_data =
+    # sum_of_numbers =
+    # write answer to file
