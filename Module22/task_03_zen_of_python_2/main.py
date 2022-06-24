@@ -69,16 +69,6 @@ def find_most_rare_letter(text: str) -> str:
     pass
 
 
-def print_report(
-    letters_quantity: int,
-    words_quantity: int,
-    lines_quantity: int,
-    most_rare_letter: str,
-) -> None:
-    # only prints
-    pass
-
-
 if __name__ == "__main__":
     pass
     # abs_path_zen =
