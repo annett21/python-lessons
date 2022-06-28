@@ -1,82 +1,42 @@
 import os
 from collections import Counter
 
-# def read_file(file_path):
-#     with open(file_path) as files:
-#         text = files.read()
-#     return text
-
-
-# def count_words(text):
-#     amount_of_words = 0
-#     for line in text:
-#         amount_of_words += len(line.split())
-#     return amount_of_words
-
-
-# def count_letters(text):
-#     counter = 0
-#     for char in text:
-#         if char.isalpha():
-#             counter += len(char)
-#     return counter
-
-
-# def find_unique_letter(text):
-#     text = text.lower()
-#     new_line = ""
-#     for letter in text:
-#         if letter.isalpha():
-#             new_line += letter
-#     c = Counter(new_line)
-#     unique_letter = c.most_common()[:-2:-1]
-#     return unique_letter[0][0]
-
-
-# path = "Module22/02_zen_of_python/zen.txt"
-# text = read_file(path)
-# full_text = text.split(sep="\n")
-
-# print("Количество букв в файле: ", count_letters(text))
-# print("Количество слов в файле: ", count_words(full_text))
-# print("Количество строк в файле:", len(full_text))
-# print("Наиболее редкая буква: ", find_unique_letter(text))
-
 
 def read_file(file_path: str) -> str:
-    # it is possible to return value inside context (inside "with")
-    pass
+    with open(file_path) as f:
+        return f.read()
 
 
 def count_letters(text: str) -> int:
-    # use list comprehension + len()
-    pass
+    return len([char for char in text if char.isalpha()])
 
 
 def count_words(text: str) -> int:
-    # use list comprehension + len()
-    # and any() + letter.isalpha() to know word consists letters
-    pass
+    return len(
+        [word for word in text.split() if any([l.isalpha() for l in word])]
+    )
 
 
 def count_lines(text: str) -> int:
-    pass
+    return len(text.split("\n"))
 
 
 def find_most_rare_letter(text: str) -> str:
-    # use list comprehension
-    # [:-2:-1] ???
-    pass
+    c = Counter([letter for letter in text.lower() if letter.isalpha()])
+    return c.most_common()[-1][0]
 
 
 if __name__ == "__main__":
     pass
-    # abs_path_zen =
-    # zen_of_python =
+    abs_path_zen = os.path.abspath("Module22/task_02_zen_of_python/zen.txt")
+    zen_of_python = read_file(abs_path_zen)
 
-    # letters_quantity =
-    # words_quantity =
-    # lines_quantity =
-    # most_rare_letter =
+    letters_quantity = count_letters(zen_of_python)
+    words_quantity = count_words(zen_of_python)
+    lines_quantity = count_lines(zen_of_python)
+    most_rare_letter = find_most_rare_letter(zen_of_python)
 
-    # print report
+    print("Количество букв в файле: ", letters_quantity)
+    print("Количество слов в файле: ", words_quantity)
+    print("Количество строк в файле:", lines_quantity)
+    print("Наиболее редкая буква: ", most_rare_letter)
