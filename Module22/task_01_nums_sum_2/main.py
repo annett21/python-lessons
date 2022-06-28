@@ -1,41 +1,25 @@
 import os
 
-# def get_numbers_from_file(file_path):
-#     with open(file_path, "r") as numbers:
-#         return [int(i_num.strip()) for i_num in numbers if i_num.strip()]
-
-
-# def write_sum_to_file(file_path, numbers):
-#     with open(file_path, "a") as answer:
-#         answer.write(str(sum(numbers)) + "\n")
-
-
-# absolute_path = "/Users/anatarasevic/python_lessons/Module22/01_nums_sum_2/"
-# answer_path = absolute_path + "answer.txt"
-# number_path = absolute_path + "numbers.txt"
-
-# write_sum_to_file(answer_path, get_numbers_from_file(number_path))
-
 
 def read_file(file_path: str) -> str:
-    pass
+    with open(file_path) as numbers:
+        return numbers.read()
 
 
 def normalize_file_data(file_data: str) -> list[int]:
-    pass
+    return [int(i_num.strip()) for i_num in file_data if i_num.strip()]
 
 
 def write_file(file_path: str, text: str) -> None:
-    pass
+    with open(file_path, "w") as answer:
+        answer.write(text)
 
 
 if __name__ == "__main__":
-    pass
-    # use os.path.abspath to get files paths
-    # answer_path =
-    # numbers_path =
+    answer_path = os.path.abspath("Module22/task_01_nums_sum_2/answer.txt")
+    numbers_path = os.path.abspath("Module22/task_01_nums_sum_2/numbers.txt")
 
-    # file_data =
-    # normalized_data =
-    # sum_of_numbers =
-    # write answer to file
+    file_data = read_file(numbers_path)
+    normalized_data = normalize_file_data(file_data)
+    sum_of_numbers = str(sum(normalized_data))
+    write_file(answer_path, sum_of_numbers)
