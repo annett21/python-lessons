@@ -3,7 +3,7 @@ from collections import Counter
 from zipfile import ZipFile
 
 
-def extract_zip(file_path: str) -> None:
+def extract_zip(file_path: str) -> str:
     dir_path = os.path.dirname(file_path)
     zip_name = os.path.basename(file_path)
     file_name = ".".join(zip_name.split(".")[:-1])
@@ -16,7 +16,7 @@ def extract_zip(file_path: str) -> None:
     return extracted_dir_path
 
 
-def analyze_text(file_path: str) -> dict[str, int]:
+def analyze_text(file_path: str) -> dict[str, float]:
     stats: dict[str, int] = {}
 
     with open(file_path, "r") as f:
@@ -26,10 +26,11 @@ def analyze_text(file_path: str) -> dict[str, int]:
                     stats[char] = stats.get(char, 0) + quantity
 
     all_letters_quantity = sum(stats.values())
+    analyzed_stats: dict[str, float] = {}
     for char, quantity in stats.items():
-        stats[char] = round(quantity / all_letters_quantity, 6)
+        analyzed_stats[char] = round(quantity / all_letters_quantity, 6)
 
-    return stats
+    return analyzed_stats
 
 
 def print_stats(stats: dict[str, float]) -> None:
